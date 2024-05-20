@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    tools{ 
+    maven 'M2_HOME'
+    }
+    stages{
+        stage ("maven"){
+            
+             steps{
+                dir ('geo'){
+               sh 'mvn clean validate compile install test package'
+            } 
+            }
+      }
+      
+    }
+}
